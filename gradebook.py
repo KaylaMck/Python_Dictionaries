@@ -23,16 +23,34 @@ def update_grade(name, grade):
     else:
         print(f"{name} not found.")
 
-add_student("Alice", "90")
-add_student("Bob", "65")
-add_student("Charlie", "88")
+def find_grade(name):
+    if name in student_grades:
+        grade = student_grades[name]
+        print(f"{name}'s current grade: {grade}")
+    else:
+        print("Student not found.")
+
+def average_grade():
+    grades = student_grades.values()
+    total = sum(grades)
+    count = len(grades)
+    avg = total/count
+    print(f"The classroom average is: {avg}")
+
+add_student("Alice", 90)
+add_student("Bob", 65)
+add_student("Charlie", 88)
 
 display_students()
 
-update_grade("Alice", "99")
+update_grade("Alice", 99)
 
 display_students()
 
 removed_student("Bob")
 
 display_students()
+
+find_grade("Alice")
+
+average_grade()
